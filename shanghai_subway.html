@@ -1,0 +1,322 @@
+<!DOCTYPE HTML>
+<html>
+
+<header>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="./jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="./jquery.subwayMap-0.5.2.js"></script>
+	<script>
+		$(function(){
+			$.getJSON("./Shanghai_Metro_1.json", function(data, status){
+				alert(status);
+				console.log(data);
+				var lines = data.lines;
+				var stations = data.stations;
+				var labels = data.labels;
+				var tmp_label = "";
+				for(var k = 0; k < labels.length; k++)
+				{
+					tmp_label += k + " : " + labels[k]['text'] + "  ;  ";
+					
+					console.log( k + " : " + labels[k]['text']);
+				}
+				
+				$("#subway_stations").append(tmp_label);
+				
+				var tmp_line = "";
+				var tmp_line_url = "<ul data-color='" + lines[0].color + "' data-label='" + lines[0].name + "'> ";
+				for(var i = 0; i < lines[0].stations.length; i++)
+				{
+					tmp_line += lines[0].stations[i] + ":" + labels[lines[0].stations[i]]['text'] + " ==>> ";
+					
+					tmp_line_url += "<li data-coords='" + parseInt(labels[lines[0].stations[i]]['x'])/10 + "," + parseInt(labels[lines[0].stations[i]]['y'])/10 + "' >" + labels[lines[0].stations[i]]['text'] + "</li>  "
+					 
+				}
+				tmp_line_url += "</ul>";
+				
+				$("#subway_line_1").append(tmp_line);
+				
+				var tmp_line = "";
+				tmp_line_url += "<ul data-color='" + lines[1].color + "' data-label='" + lines[1].name + "'> ";
+				for(var i = 0; i < lines[1].stations.length; i++)
+				{
+					tmp_line += lines[1].stations[i] + ":" + labels[lines[1].stations[i]]['text'] + " ==>> ";
+					
+					tmp_line_url += "<li data-coords='" + parseInt(labels[lines[1].stations[i]]['x'])/10 + "," + parseInt(labels[lines[1].stations[i]]['y'])/10 + "' >" + labels[lines[0].stations[i]]['text'] + "</li>  "
+					 
+				}
+				tmp_line_url += "</ul>";
+				
+				$("#subway_line_2").append(tmp_line);
+				
+				var tmp_line = "";
+				tmp_line_url += "<ul data-color='" + lines[2].color + "' data-label='" + lines[2].name + "'> ";
+				for(var i = 0; i < lines[2].stations.length; i++)
+				{
+					tmp_line += lines[2].stations[i] + ":" + labels[lines[2].stations[i]]['text'] + " ==>> ";
+					
+					tmp_line_url += "<li data-coords='" + parseInt(labels[lines[2].stations[i]]['x'])/10 + "," + parseInt(labels[lines[2].stations[i]]['y'])/10 + "' >" + labels[lines[0].stations[i]]['text'] + "</li>  "
+					 
+				}
+				tmp_line_url += "</ul>";
+				$("#subway_line_3").append(tmp_line);
+				
+				
+				var tmp_line = "";
+				tmp_line_url += "<ul data-color='" + lines[3].color + "' data-label='" + lines[3].name + "'> ";
+				for(var i = 0; i < lines[3].stations.length; i++)
+				{
+					tmp_line += lines[3].stations[i] + ":" + labels[lines[3].stations[i]]['text'] + " ==>> ";
+					
+					tmp_line_url += "<li data-coords='" + parseInt(labels[lines[3].stations[i]]['x'])/10 + "," + parseInt(labels[lines[3].stations[i]]['y'])/10 + "' >" + labels[lines[0].stations[i]]['text'] + "</li>  "
+					 
+				}
+				tmp_line_url += "</ul>";
+				$("#subway_line_4").append(tmp_line);
+				
+				var tmp_line = "";
+				tmp_line_url += "<ul data-color='" + lines[4].color + "' data-label='" + lines[4].name + "'> ";
+				for(var i = 0; i < lines[4].stations.length; i++)
+				{
+					tmp_line += lines[4].stations[i] + ":" + labels[lines[4].stations[i]]['text'] + " ==>> ";
+					
+					tmp_line_url += "<li data-coords='" + parseInt(labels[lines[4].stations[i]]['x'])/10 + "," + parseInt(labels[lines[4].stations[i]]['y'])/10 + "' >" + labels[lines[4].stations[i]]['text'] + "</li>  "
+					 
+				}
+				tmp_line_url += "</ul>";
+				$("#subway_line_5").append(tmp_line);
+				
+				var tmp_line = "";
+				tmp_line_url += "<ul data-color='" + lines[5].color + "' data-label='" + lines[5].name + "'> ";
+				for(var i = 0; i < lines[5].stations.length; i++)
+				{
+					tmp_line += lines[5].stations[i] + ":" + labels[lines[5].stations[i]]['text'] + " ==>> ";
+					
+					tmp_line_url += "<li data-coords='" + parseInt(labels[lines[5].stations[i]]['x'])/10 + "," + parseInt(labels[lines[5].stations[i]]['y'])/10 + "' >" + labels[lines[5].stations[i]]['text'] + "</li>  "
+					 
+				}
+				tmp_line_url += "</ul>";
+				$("#subway_line_6").append(tmp_line);
+				
+				var tmp_line = "";
+				tmp_line_url += "<ul data-color='" + lines[6].color + "' data-label='" + lines[6].name + "'> ";
+				for(var i = 0; i < lines[6].stations.length; i++)
+				{
+					tmp_line += lines[6].stations[i] + ":" + labels[lines[6].stations[i]]['text'] + " ==>> ";
+					
+					tmp_line_url += "<li data-coords='" + parseInt(labels[lines[6].stations[i]]['x'])/10 + "," + parseInt(labels[lines[6].stations[i]]['y'])/10 + "' >" + labels[lines[6].stations[i]]['text'] + "</li>  "
+					 
+				}
+				tmp_line_url += "</ul>";
+				$("#subway_line_7").append(tmp_line);
+				
+				var tmp_line = "";
+				tmp_line_url += "<ul data-color='" + lines[7].color + "' data-label='" + lines[7].name + "'> ";
+				for(var i = 0; i < lines[7].stations.length; i++)
+				{
+					tmp_line += lines[7].stations[i] + ":" + labels[lines[7].stations[i]]['text'] + " ==>> ";
+					
+					tmp_line_url += "<li data-coords='" + parseInt(labels[lines[7].stations[i]]['x'])/10 + "," + parseInt(labels[lines[7].stations[i]]['y'])/10 + "' >" + labels[lines[7].stations[i]]['text'] + "</li>  "
+					 
+				}
+				tmp_line_url += "</ul>";
+				$("#subway_line_8").append(tmp_line);
+				
+				var tmp_line = "";
+				tmp_line_url += "<ul data-color='" + lines[8].color + "' data-label='" + lines[8].name + "'> ";
+				for(var i = 0; i < lines[8].stations.length; i++)
+				{
+					tmp_line += lines[8].stations[i] + ":" + labels[lines[8].stations[i]]['text'] + " ==>> ";
+					
+					tmp_line_url += "<li data-coords='" + parseInt(labels[lines[8].stations[i]]['x'])/10 + "," + parseInt(labels[lines[8].stations[i]]['y'])/10 + "' >" + labels[lines[8].stations[i]]['text'] + "</li>  "
+					 
+				}
+				tmp_line_url += "</ul>";
+				$("#subway_line_9").append(tmp_line);
+				
+				var tmp_line = "";
+				tmp_line_url += "<ul data-color='" + lines[9].color + "' data-label='" + lines[9].name + "'> ";
+				for(var i = 0; i < lines[9].stations.length; i++)
+				{
+					tmp_line += lines[9].stations[i] + ":" + labels[lines[9].stations[i]]['text'] + " ==>> ";
+					
+					tmp_line_url += "<li data-coords='" + parseInt(labels[lines[9].stations[i]]['x'])/10 + "," + parseInt(labels[lines[9].stations[i]]['y'])/10 + "' >" + labels[lines[9].stations[i]]['text'] + "</li>  "
+					 
+				}
+				tmp_line_url += "</ul>";
+				$("#subway_line_10").append(tmp_line);
+				
+				var tmp_line = "";
+				tmp_line_url += "<ul data-color='" + lines[10].color + "' data-label='" + lines[10].name + "'> ";
+				for(var i = 0; i < lines[10].stations.length; i++)
+				{
+					tmp_line += lines[10].stations[i] + ":" + labels[lines[10].stations[i]]['text'] + " ==>> ";
+					
+					tmp_line_url += "<li data-coords='" + parseInt(labels[lines[10].stations[i]]['x'])/10 + "," + parseInt(labels[lines[10].stations[i]]['y'])/10 + "' >" + labels[lines[10].stations[i]]['text'] + "</li>  "
+					 
+				}
+				tmp_line_url += "</ul>";
+				$("#subway_line_10_2").append(tmp_line);
+				
+				var tmp_line = "";
+				tmp_line_url += "<ul data-color='" + lines[11].color + "' data-label='" + lines[11].name + "'> ";
+				for(var i = 0; i < lines[11].stations.length; i++)
+				{
+					tmp_line += lines[11].stations[i] + ":" + labels[lines[11].stations[i]]['text'] + " ==>> ";
+					
+					tmp_line_url += "<li data-coords='" + parseInt(labels[lines[11].stations[i]]['x'])/10 + "," + parseInt(labels[lines[11].stations[i]]['y'])/10 + "' >" + labels[lines[11].stations[i]]['text'] + "</li>  "
+					 
+				}
+				tmp_line_url += "</ul>";
+				$("#subway_line_11").append(tmp_line);
+				
+				var tmp_line = "";
+				tmp_line_url += "<ul data-color='" + lines[12].color + "' data-label='" + lines[12].name + "'> ";
+				for(var i = 0; i < lines[12].stations.length; i++)
+				{
+					tmp_line += lines[12].stations[i] + ":" + labels[lines[12].stations[i]]['text'] + " ==>> ";
+					
+					tmp_line_url += "<li data-coords='" + parseInt(labels[lines[12].stations[i]]['x'])/10 + "," + parseInt(labels[lines[12].stations[i]]['y'])/10 + "' >" + labels[lines[12].stations[i]]['text'] + "</li>  "
+					 
+				}
+				tmp_line_url += "</ul>";
+				$("#subway_line_11_2").append(tmp_line);
+				
+				console.log(tmp_line_url);
+				$(".subway-map").append(tmp_line_url);
+				
+				
+				/*
+				var tmp_stations = "";
+				var tmp_station_id = "";
+				for(var i = 0; i < lines.length; i++)
+				{
+					console.log("line " + data.lines[i].name);
+					console.log("color is " + data.lines[i].color);
+					tmp_stations = "";
+					for(var j = 0; j <= lines[i].stations.length; j++)
+					{
+						tmp_station_id = lines[i].stations[j];
+						console.log("station id is " + tmp_station_id);
+						console.log("station is " + labels[stations[tmp_station_id]['name']]['text']);
+						tmp_stations += stations[tmp_station_id] + ",";
+					}
+					console.log("stations is " + tmp_stations);
+					//$("#subway_lines").append(
+				}
+				*/
+				
+				$(".subway-map").subwayMap({ debug: true });
+			});
+		});
+	</script>
+</header>
+<body>
+	<div>
+		<h1>线路</h1>
+		<div id="subway_stations">
+		</div>
+		<br/>
+		<h1>一号线线路</h1>
+		<div id="subway_line_1">
+		</div>
+		<br/>
+		<h1>二号线线路</h1>
+		<div id="subway_line_2">
+		</div>
+		<br/>
+		<h1>三号线线路</h1>
+		<div id="subway_line_3">
+		</div>
+		<br/>
+		<h1>四号线线路</h1>
+		<div id="subway_line_4">
+		</div>
+		<br/>
+		<h1>五号线线路</h1>
+		<div id="subway_line_5">
+		</div>
+		
+		<br/>
+		<h1>六号线线路</h1>
+		<div id="subway_line_6">
+		</div>
+		
+		<br/>
+		<h1>七号线线路</h1>
+		<div id="subway_line_7">
+		</div>
+		
+		<br/>
+		<h1>八号线线路</h1>
+		<div id="subway_line_8">
+		</div>
+		
+		<br/>
+		<h1>九号线线路</h1>
+		<div id="subway_line_9">
+		</div>
+		
+		<br/>
+		<h1>十号线线路</h1>
+		<div id="subway_line_10">
+		</div>
+		
+		<br/>
+		<h1>十号线支线路</h1>
+		<div id="subway_line_10_2">
+		</div>
+		
+		<br/>
+		<h1>十一号线线路</h1>
+		<div id="subway_line_11">
+		</div>
+		
+		<br/>
+		<h1>十一号线支线路</h1>
+		<div id="subway_line_11_2">
+		</div>
+		
+	</div>
+	
+	<div class="subway-map" data-columns="500" data-rows="500" data-cellSize="5" data-legendId="legend" data-textClass="text" data-gridNumbers="true" data-grid="false" data-lineWidth="8">
+        <!--
+		<ul data-color="#36AEFF" data-label="jQuery Widgets">          
+            <li data-coords="2,2" data-marker="interchange"><a href="http://jqueryui.com/demos/accordion/">Accordion</a></li>  
+            <li data-coords="4,2"><a href="http://jqueryui.com/demos/autocomplete/"><a href="http://jqueryui.com/demos/autocomplete/">Auto\ncomplete</a></li>  
+            <li data-coords="5,3" data-dir="E"></li>  
+            <li data-coords="5,7" data-marker="@station" data-labelPos="W"><a href="http://jqueryui.com/demos/slider/">Slider</a></li>   
+            <li data-coords="6,4" data-dir="S" data-marker="interchange" data-markerInfo="h5"><a href="http://jqueryui.com/demos/datepicker/">Date\npicker</a></li>  
+            <li data-coords="7,4"></li>  
+            <li data-coords="7.15,8" data-marker="@station" data-labelPos="E"><a href="http://jqueryui.com/demos/dialog/">Dialog</a></li>  
+            <li data-coords="8,3" data-dir="E"></li>  
+            <li data-coords="8,2"></li>  
+            <li data-coords="9,1" data-dir="N"></li>  
+            <li data-coords="10,2" data-dir="E" data-marker="interchange" data-labelPos="E"><a href="http://jqueryui.com/demos/button/">Button</a></li>  
+            <li data-coords="10,5"></li>  
+            <li data-coords="9,6" data-dir="S" data-marker="station"><a href="http://jqueryui.com/demos/progressbar/">Progress\nbar</a></li>  
+            <li data-coords="6,9"></li>  
+            <li data-coords="5,8" data-dir="W"></li>  
+            <li data-coords="5,7"></li>  
+            <li data-coords="4,6" data-dir="N"></li>  
+            <li data-coords="2,6"><a href="http://jqueryui.com/demos/tabs/">Tabs</a></li>  
+        </ul>
+
+        <ul data-color="#FF7936 " data-label="jQuery Interactions" data-shiftCoords="0,-1" data-outline="true" data-dotted="true">      
+            <li data-coords="2,6"></li> 
+            <li data-coords="2,5.9" data-marker="@interchange"> </li> 
+            <li data-coords="5,6" data-marker="@station" data-labelPos="N"><a href="http://jqueryui.com/demos/selectable/">Selectable</a></li>  
+            <li data-coords="6,6"></li>  
+            <li data-coords="7,3" data-marker="@station" data-labelPos="W"><a href="http://jqueryui.com/demos/resizeable/">Resizeable</a></li>  
+            <li data-coords="7,5" data-dir="E" data-marker="station" data-labelPos="E"><a href="http://jqueryui.com/demos/droppable/">Droppable</a></li>  
+            <li data-coords="7,1" data-marker="interchange" data-labelPos="W"><a href="http://jqueryui.com/demos/draggable/">Draggable</a></li>  
+        </ul>
+		 -->
+
+    </div>
+    <div id="legend"></div>
+	<script type="text/javascript">
+        $(".subway-map").subwayMap({ debug: true });
+    </script>
+</body>
+</html>
