@@ -8,8 +8,7 @@
 	<script>
 		$(function(){
 			$.getJSON("./Shanghai_Metro_1.json", function(data, status){
-				alert(status);
-				console.log(data);
+
 				var lines = data.lines;
 				var stations = data.stations;
 				var labels = data.labels;
@@ -27,7 +26,7 @@
 				var tmp_line_url = "<ul data-color='" + lines[0].color + "' data-label='" + lines[0].name + "'> ";
 				for(var i = 0; i < lines[0].stations.length; i++)
 				{
-					tmp_line += lines[0].stations[i] + ":" + labels[lines[0].stations[i]]['text'] + " ==>> ";
+					tmp_line += lines[0].stations[i] + ":" + labels[lines[0].stations[i]]['text'] + "(" + parseInt(labels[lines[0].stations[i]]['x'])/10 + " , " + parseInt(labels[lines[0].stations[i]]['y'])/10 + " ) ==>> ";
 					
 					tmp_line_url += "<li data-coords='" + parseInt(labels[lines[0].stations[i]]['x'])/10 + "," + parseInt(labels[lines[0].stations[i]]['y'])/10 + "' >" + labels[lines[0].stations[i]]['text'] + "</li>  "
 					 
